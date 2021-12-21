@@ -1,0 +1,18 @@
+
+    
+    {% if module_customelements_status %}
+        <h1 class="customelements-header">{{ text_customelements }}</h1>
+        <div class="customelements-block">
+            {% for element in module_customelements_elements %}
+                {% if element.url %}<a href="{{ element.url }}" />{% endif %}
+                    <div class="__element">
+                        {% if element.imgurl %}<img alt="{{ text_customelements }} {{ element.name }}" src="{{ element.imgurl }}" />{% endif %}
+                        <span>{{ element.name }}</span>
+                    </div>
+                {% if element.url %}</a>{% endif %}
+            {% endfor %}
+        </div>
+        {% else %}
+        {{ text_error }}
+    {% endif %}
+ 
